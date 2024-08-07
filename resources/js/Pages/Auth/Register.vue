@@ -13,6 +13,7 @@ const form = useForm({
     password_confirmation: '',
     address: '',
     contact_number: '',
+    user_type: '',
 });
 
 const submit = () => {
@@ -114,6 +115,24 @@ const submit = () => {
                     v-model="form.contact_number"
                     required
                 />
+
+                <!-- New User Type Field -->
+            <div class="mt-4">
+                <InputLabel for="user_type" value="User Type" />
+
+                <select
+                    id="user_type"
+                    class="mt-1 block w-full"
+                    v-model="form.user_type"
+                    required
+                >
+                    <option value="" disabled>Select your user type</option>
+                    <option value="customer">Customer</option>
+                    <option value="owner">Owner</option>
+                </select>
+
+                <InputError class="mt-2" :message="form.errors.user_type" />
+            </div>
 
                 <InputError class="mt-2" :message="form.errors.contact_number" />
             </div>
